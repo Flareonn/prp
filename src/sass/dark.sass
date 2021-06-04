@@ -1,0 +1,73 @@
+@import 'style'
+
+.button-crop
+  span, &__group button
+    color: #F0F0F0
+
+input
+  &[type="range"]
+    &::-webkit-slider-runnable-track
+      background: #747474
+    &::-webkit-slider-thumb
+      background-image: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M6.34904 0.141963C6.31079 0.104586 6.26774 0.0744603 6.22175 0.0517389C6.15173 0.0170336 6.07573 -3.89668e-05 6 6.67792e-08C5.92427 -3.89582e-05 5.84827 0.0170332 5.77825 0.0517385C5.73226 0.0744599 5.68921 0.104587 5.65096 0.141963C5.63689 0.155653 5.62378 0.170003 5.61165 0.184922L0.118317 6.67704C0.0453367 6.76329 0.00661706 6.86706 0.000778514 6.9718H0L1.00044e-09 6.99976L0 9.9718C0 11.0764 0.895431 11.9718 2 11.9718H10C11.1046 11.9718 12 11.0764 12 9.9718V7.00009C12 6.99987 12 6.99965 12 6.99944V6.9718H11.9992C11.9934 6.86706 11.9547 6.76329 11.8817 6.67704L6.38835 0.184922C6.37622 0.170003 6.36311 0.155653 6.34904 0.141963ZM11 7.18318L6 1.27409L1 7.18318V9.9718C1 10.5241 1.44772 10.9718 2 10.9718H10C10.5523 10.9718 11 10.5241 11 9.9718V7.18318Z' fill='%23212121'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M11 7.18314L6 1.27405L1 7.18314V9.97176C1 10.524 1.44772 10.9718 2 10.9718H10C10.5523 10.9718 11 10.524 11 9.97176V7.18314Z' fill='%23F0F0F0'/%3E%3C/svg%3E");
+  &[type="checkbox"]
+    border-color: #d4d4d4
+    background: #484747
+    &:checked
+      background-image: url("../img/checked.svg")
+
+.main
+  background-color: #525353
+  &-footer__link
+    color: #ADADAD
+    &:hover, &:active
+      color: #dcdddc
+  .rt .main-dodge__grid-wrapper *
+    color: #F2F3F3
+  .color .main-mode__grid
+    &-block
+      background: #454645
+      border: 1px solid #676665
+    &-item
+      color: #F2F3F3
+      input:checked + label::after
+        background-color: #DCDDDC
+  .controls
+    .main
+      &-filters__label, &-ranges__label, &-actions__block label
+        color: #F0F0F0
+      &-ranges__number
+        background: #454545
+        border: 1px solid #5F5F5F
+        color: #FFFFFF
+      &-actions__block:last-child button:last-child
+        border: 0.5px solid #F0F0F0
+        &:active
+          background: #E1E1E0!important
+          color: #353635
+%title
+  color: #F2F3F3
+%bottomLine
+  border-bottom: 1px solid #3D3E3E
+%button
+  background-color: #454545
+  border: 1px solid #6F6D6D
+  color: #F0F0F0
+  &Classic
+    background: #454645
+    border: 1px solid #676665
+    &:active
+      background: #373838
+      border: 1px solid #636262
+  &Align
+    background-color: transparent
+    &:hover
+      background: #474747
+      border: 1px solid #5B5A5C
+    &:active
+      background-color: #404241
+      border-color: #5E5D5D
+
+select
+  background-color: #454645
+  border: 1px solid #676665

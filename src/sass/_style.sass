@@ -1,0 +1,327 @@
+@import 'null'
+
+.button-crop
+  text-align: center
+  span
+    font-size: 11px
+    line-height: 15px
+    margin-bottom: 2px
+    display: block
+    position: relative
+    svg
+      width: 7.5px
+      height: 5.5px
+      top: 8.5px
+      display: block
+      position: absolute
+      &:first-child
+        left: 7px
+      &:last-child
+        right: 7px
+  &__group
+    display: flex
+    align-items: center
+    button
+      @extend %buttonClassic
+      width: 26px!important
+      height: 24px!important
+      padding: 0
+      margin: 0!important
+      border-radius: 0!important
+      padding-bottom: 1px
+      font-size: 10px!important
+      line-height: 14px!important
+      border-radius: 3px!important
+      &:first-child
+        margin-right: 15px!important
+
+.main
+  width: 236px
+  &-nav
+    height: 33px
+    align-items: center
+    padding: 0px 10px
+    justify-content: space-between
+    display: flex
+    @extend %bottomLine
+    &__button
+      @extend %buttonAlign
+      &:not(:last-child)
+        margin-right: 8px
+  &-filters
+    padding: 7px 10px 4px
+    &__title
+      @extend %title
+    &__grid
+      display: flex
+      flex-wrap: wrap
+      &-button
+        @extend %buttonClassic
+  &-options
+    padding: 0px 10px 9px
+    display: flex
+    align-items: flex-end
+    @extend %bottomLine
+    &__block
+      &:first-child
+        margin-right: 13px
+      &:nth-child(2)
+        display: flex
+        margin-right: 12px
+      &:last-child .select-wrapper
+        padding-left: 1px
+        &:first-child
+          margin-bottom: 5px
+    &__align
+      @extend %buttonAlign
+      width: 24px
+      height: 24px
+      display: flex
+      align-items: center
+      justify-content: center
+      padding-bottom: 2px
+      svg rect
+        stroke: transparent!important
+      &:first-child
+        margin-right: 8px
+      &:last-child
+        transform: rotate(90deg)
+  &-export
+    padding: 10px 10px 0px
+    display: flex
+    flex-wrap: wrap
+    &__button
+      @extend %buttonClassic
+  &-align
+    display: flex
+    align-items: center
+    padding: 5px 10px 8px
+    &__button
+      @extend %buttonAlign
+      width: 26px!important
+      &:not(:last-child)
+        margin-right: 6px
+  &-footer
+    padding: 0px 10px 11px
+    display: flex
+    &__link
+      font-size: 8px
+      line-height: 9px
+      &:not(:last-child)
+        margin-right: 23px
+
+.main .rt
+  .main
+    &-filters
+      @extend %bottomLine
+      padding: 7px 10px 2px!important
+    &-dodge__title, &-layers__title
+      @extend %title
+      margin-bottom: 10px !important
+      height: 15px!important
+    &-dodge
+      padding: 7px 10px 11px
+      &__grid
+        @extend .main-filters__grid
+        &-button
+          @extend %buttonClassic
+          &:nth-last-child(2), &:nth-last-child(3)
+            margin-bottom: 0
+          &_min
+            @extend %button
+            width: 24px
+            height: 24px
+            &:active
+              @extend %buttonClassic:active
+        &-wrapper
+          display: flex
+          align-items: center
+          span
+            font-weight: 600
+            font-size: 11px
+            line-height: 15px
+          button
+            &:first-child
+              margin-right: 5px
+            &:last-child
+              margin-left: 6px
+    &-layers
+      padding: 0px 10px 6px
+      &__grid
+        @extend .main-filters__grid
+        &-button
+          @extend .main-dodge__grid-button
+          margin-bottom: 0 !important
+.main .tools
+  .main
+    &-filters
+      padding: 7px 10px 11px
+    &-brightness
+      padding: 7px 10px 0px
+      &__title
+        @extend %title
+        margin-bottom: 17px!important
+      &__grid
+        display: flex
+        padding-left: 2px
+        &-block
+          &:first-child, svg
+            margin-right: 6.5px
+          &:nth-child(2)
+            margin-right: 3px
+          &:last-child svg
+            margin-right: 8px
+        &-block, &-group
+          display: inherit
+          align-items: center
+        &-button
+          @extend %buttonClassic
+          width: 21.67px!important
+          height: 20px!important
+          margin-bottom: 0!important
+          font-size: 12.5px
+          line-height: 17px
+          &:first-child
+            margin-right: 3px
+    &-layers
+      padding: 0px 10px
+      &__title
+        @extend %title
+        margin-bottom: 11px!important
+        height: 15px
+      &__grid
+        @extend .main-filters__grid
+        &-button
+          @extend .main-filters__grid-button
+.main .makeup
+  .main
+    &-filters
+      padding: 7px 10px 15px
+      @extend %bottomLine
+      &__grid
+        justify-content: flex-end
+        select
+          padding-left: 0
+    &-layers
+      padding: 7px 10px 0px
+      &__title
+        @extend %title
+        margin-bottom: 12px!important
+      &__grid
+        @extend .main-filters__grid
+        &-button
+          @extend .main-filters__grid-button
+.main .color
+  .main
+    &-filters
+      padding-bottom: 13px
+      &__title
+        @extend %title
+        height: 15px
+        margin-bottom: 0px!important
+    &-mode
+      padding: 0px 10px 31px
+      &__label
+        @extend %title
+        margin: 0px 0px 0px 1px!important
+      &__group
+        display: flex
+        align-items: center
+        justify-content: space-between
+        margin-bottom: 12px
+      &__select
+        width: 101px
+        padding-left: 1px
+      &__grid
+        display: flex
+        max-height: 184px
+        &-block
+          width: 101px
+          display: flex
+          flex-direction: column
+          border-radius: 3px
+          box-sizing: content-box
+          max-height: 184px
+          padding: 5px 0px 0px 10px
+          &:first-child
+            margin-right: 12px
+          &:last-child
+            overflow-y: auto
+        &-item
+          font-size: 11px
+          margin-bottom: 5.4px
+          display: flex
+          position: relative
+          align-items: center
+          &:hover
+            text-decoration: underline
+          input
+            display: none
+            &:checked + label::after
+              display: block
+              position: absolute
+              top: 61%
+              transform: translateY(-50%)
+              left: -1px
+              content: ''
+              width: 5px
+              height: 5px
+              border-radius: 50%
+          label
+            padding-left: 7.66px
+.main .controls
+  .main
+    &-filters
+      &__grid
+        align-items: center
+        &-button
+          margin-bottom: 0
+      &__label
+        font-size: 11px
+        line-height: 12px
+        padding-bottom: 1px
+        margin-right: 7px
+    &-ranges
+      padding: 19px 10px 0px
+      &__block
+        display: flex
+        align-items: flex-start
+        &:not(:last-child)
+          margin-bottom: 7px
+      &__label
+        font-size: 11px
+        line-height: 12px
+        margin-top: 5px
+        margin-right: 20px
+        width: 100%
+      &__input
+        margin-top: 10px
+        margin-right: 21px
+      &__number
+        width: 31px
+        height: 22px
+        padding-left: 0
+        padding-right: 5px
+        text-align: right
+    &-actions
+      padding: 35px 10px 0px
+      label
+        font-size: 11px
+        line-height: 11px
+        margin-left: 6px
+      &__block
+        display: flex
+        &:not(:last-child)
+          margin-bottom: 13px
+        &:last-child
+          justify-content: space-between
+          button:last-child
+            box-sizing: border-box
+            border-radius: 14px
+            width: 66px
+            margin-right: 0
+        &-button
+          @extend %buttonClassic
+          &:last-child
+            background-color: transparent!important
+@import 'interface'

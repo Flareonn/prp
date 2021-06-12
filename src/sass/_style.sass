@@ -98,9 +98,8 @@
     padding: 5px 10px 8px
     &__button
       @extend %buttonAlign
-      width: 26px!important
       &:not(:last-child)
-        margin-right: 6px
+        margin-right: 8px
   &-footer
     padding: 0px 10px 11px
     display: flex
@@ -131,11 +130,19 @@
             @extend %button
             width: 24px
             height: 24px
+            display: flex
+            align-items: center
+            justify-content: center
+            padding-bottom: 0!important
             &:active
               @extend %buttonClassic:active
         &-wrapper
           display: flex
           align-items: center
+          justify-content: space-between
+          width: 68px
+          &:nth-last-child(2)
+            margin-right: 6px
           span
             font-weight: 600
             font-size: 11px
@@ -245,8 +252,8 @@
           padding: 5px 0px 0px 10px
           &:first-child
             margin-right: 12px
-          &:last-child
-            overflow-y: auto
+          // &:last-child
+            // overflow-y: auto
         &-item
           font-size: 11px
           margin-bottom: 5.4px
@@ -324,4 +331,137 @@
           @extend %buttonClassic
           &:last-child
             background-color: transparent!important
+.main .work
+  .main
+    &-filters
+      padding-bottom: 10px
+      &__group
+        margin-left: 1px
+        display: flex
+        justify-content: space-between
+        align-items: center
+      &__select
+        width: 82px
+        padding-left: 0
+      &__actions
+        display: flex
+        align-items: center
+        margin-right: 5px
+      &__button
+        display: inline-flex
+        height: 12px
+        svg
+          height: inherit
+        &:first-child
+          margin-right: 9.2px
+    &-interactive
+      padding: 0px 10px 9px
+      &__window
+        border: 1px solid #676665
+        border-radius: 3px
+        padding: 6px 5px
+        height: 186px
+      &__actions
+        display: flex
+        align-items: center
+        justify-content: center
+        margin-top: 6px
+      &__text
+        font-size: 11px
+        line-height: 15px
+        text-align: center
+        width: 72px
+      &__button
+        display: flex
+        &.next
+          transform: rotate(180deg)
+    &-window
+      display: flex
+      flex-direction: column
+      position: relative
+      &__group
+        display: flex
+        align-items: center
+        &_title button
+          margin-right: 13px!important
+        &.colors
+          flex-wrap: wrap
+          span.color
+            &:first-child
+              width: 30px
+            &:nth-child(2)
+              width: calc(100% - 30px)
+        &.align
+          margin-bottom: 3px
+          button
+            width: 24px!important
+            display: inline-flex!important
+            padding-bottom: 0!important
+            align-items: center
+            justify-content: center
+            margin-right: 7px!important
+            + span
+              margin: 0px!important
+        &_buttons
+          justify-content: space-around
+          >button, &.column .column-group button
+            width: 60px!important
+          >button:nth-child(2)
+            margin: 0!important
+          &.column
+            flex-direction: column
+            .column-group
+              display: flex
+              width: 100%
+              margin-bottom: 6px
+              align-items: center
+              span
+                width: 130px
+              button
+                margin-right: 7px!important
+      &__title
+        font-weight: 600
+        font-size: 11px
+        line-height: 15px
+        margin-bottom: 4px
+      &__content
+        margin-bottom: 3px
+      &__content, &__link, span, strong, li
+        font-size: 10px
+        line-height: 14px
+      &__button
+        @extend %buttonClassic
+        margin: 0!important
+        + .or
+          margin: 0px 15px
+        &_align
+          padding-bottom: 0!important
+          width: 24px!important
+          display: flex
+          align-items: center
+          justify-content: center
+      &__footer
+        display: flex
+        justify-content: space-between
+        position: absolute
+        width: 100%
+        padding: 0px 6px
+        right: 0
+        bottom: 6px
+        flex-direction: row-reverse
+        align-items: flex-end
+        &.single
+          width: 12px
+      &__copy
+        display: flex
+      &_plus
+        display: block
+        font-size: 15px!important
+        line-height: 20px!important
+        margin-left: 8px
+      &__link:hover
+        text-decoration: underline
+    &-interactive__button, &-filters__button, &-window__copy
+      &:hover path, &:active path
+        fill: #DCDDDC
 @import 'interface'

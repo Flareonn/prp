@@ -779,8 +779,8 @@ class Slider {
     this.html = this.html.split('<footer class="main-window__footer single">').join(`<${tagName} class="${className}">${content}</${tagName}><footer class="main-window__footer single">`);
     return this;
   }
-  addButtonTitle(buttonTitle) {
-    this.html = this.html.split('<h3 class="main-window__title">').join(`<button class="main-window__button">${buttonTitle}</button><h3 class="main-window__title" style="margin-bottom:0px;">`);
+  addButtonTitle(title, handler = '') {
+    this.html = this.html.split('<h3 class="main-window__title">').join(`${this._createButton(title, handler)}<h3 class="main-window__title" style="margin-bottom:0px;">`);
     return this;
   }
   addBlockOne(content) {
@@ -798,8 +798,8 @@ class Slider {
     this.html = this.html.split('<footer class="main-window__footer single">')
     .join(`
     <div class="main-window__group align">
-      <button class="main-window__button">${iconCode}</button>
-      ${iconAdditional ? `<button class="main-window__button">${iconAdditional}</button>` : ''}
+      ${this._createButton(iconCode)}
+      ${iconAdditional ? this._createButton(iconAdditional) : ''}
       <span>${description}</span>
     </div>
     <footer class="main-window__footer single">`);
@@ -817,6 +817,7 @@ class Slider {
     return this._isChoosing === true
   }
   toString() {return this.html}
+  _createButton = (title, handler = '') => `<button class="main-window__button" onclick=${handler}>${title}</button>`
 }
 
 // Reusing pages

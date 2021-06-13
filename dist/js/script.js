@@ -725,7 +725,6 @@ const workflow = `<div class="work">
     </button>
     <span
       class="main-interactive__text"
-      data-step="0"
       id="interactiveSteps"
       >Step</span
     >
@@ -1078,13 +1077,15 @@ const modes = {
   }
 }
 // Drop menu scenario pages
+// Scenarios must have name property!
 const scenario = {
   workflow: {
     html: new Slider('Choose workflow', 'All the necessary information will appear here')
-    .addBlock('p', 'main-window__content', `Note: use the Merge ( <svg width="9" height="12" style="padding-top:3px;" viewBox="0 0 9 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M4.50087 4.72341C4.5765 4.63058 4.64784 4.53815 4.72454 4.44958C5.02856 4.09897 5.40284 3.82011 5.82083 3.58747C6.02736 3.4726 6.23347 3.35715 6.44342 3.24711C6.85049 3.03439 7.10437 2.71589 7.2552 2.32119C7.37003 2.02125 7.43602 1.71184 7.48079 1.39817C7.54507 0.947582 7.56456 0.492936 7.56628 0.0386768C7.56628 0.0177956 7.58474 0.00154707 7.60562 0.00154707L8.95695 0.00154707C8.97938 0.00154707 9 0.0185675 9 0.0409974C9 0.597364 8.97258 1.15257 8.88431 1.7041C8.81382 2.14521 8.70006 2.57665 8.50295 2.98779C8.24779 3.51959 7.84672 3.94504 7.31861 4.26895C7.06152 4.42656 6.79286 4.56696 6.52977 4.71567C6.06143 4.98022 5.70235 5.34069 5.41977 5.7642C5.28314 5.97212 5.21305 6.21016 5.21731 6.45188C5.21731 7.04324 5.21731 7.63461 5.21731 8.22598C5.21731 8.29096 5.21731 8.29096 5.29079 8.29096H7.30747L4.85737 11.4238C4.78782 11.5128 4.65507 11.518 4.5787 11.4349L1.69149 8.29096H3.71545C3.79494 8.29096 3.79494 8.29096 3.79494 8.21709C3.79494 7.65318 3.78916 7.08908 3.7973 6.52517C3.80201 6.19641 3.69532 5.90324 3.49264 5.6356C3.16999 5.21016 2.77278 4.85549 2.26909 4.60157C1.98834 4.46378 1.72056 4.30545 1.46846 4.12817C0.925568 3.73754 0.562638 3.2386 0.351394 2.64375C0.202708 2.22604 0.11851 1.79731 0.0685911 1.3622C0.0213642 0.929176 -0.0018034 0.49429 -0.000823975 0.0591755C-0.000823975 0.0264938 0.0256701 0 0.0583515 0L1.37488 0C1.40692 0 1.4329 0.0259743 1.4329 0.0580152C1.45239 0.436081 1.46268 0.814727 1.49417 1.19202C1.52394 1.5556 1.60022 1.91484 1.72148 2.26259C1.87703 2.70738 2.16604 3.05102 2.61917 3.2854C2.9144 3.43818 3.20384 3.60197 3.48471 3.77544C3.87914 4.0191 4.20286 4.3289 4.46788 4.68821C4.47495 4.69769 4.48159 4.70755 4.4893 4.71625C4.4908 4.71857 4.49466 4.71993 4.50087 4.72341Z" fill="#F2F3F3"/>
-    </svg> ) button to merge the visible layers after each successful operation.`),
+    .addBlock('p', 'main-window__content', `<span>Note: use the Merge ( </span>
+      <svg width="9" style="margin-bottom:-4px;" height="12" viewBox="0 0 9 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.50087 4.72341C4.5765 4.63058 4.64784 4.53815 4.72454 4.44958C5.02856 4.09897 5.40284 3.82011 5.82083 3.58747C6.02736 3.4726 6.23347 3.35715 6.44342 3.24711C6.85049 3.03439 7.10437 2.71589 7.2552 2.32119C7.37003 2.02125 7.43602 1.71184 7.48079 1.39817C7.54507 0.947582 7.56456 0.492936 7.56628 0.0386768C7.56628 0.0177956 7.58474 0.00154707 7.60562 0.00154707L8.95695 0.00154707C8.97938 0.00154707 9 0.0185675 9 0.0409974C9 0.597364 8.97258 1.15257 8.88431 1.7041C8.81382 2.14521 8.70006 2.57665 8.50295 2.98779C8.24779 3.51959 7.84672 3.94504 7.31861 4.26895C7.06152 4.42656 6.79286 4.56696 6.52977 4.71567C6.06143 4.98022 5.70235 5.34069 5.41977 5.7642C5.28314 5.97212 5.21305 6.21016 5.21731 6.45188C5.21731 7.04324 5.21731 7.63461 5.21731 8.22598C5.21731 8.29096 5.21731 8.29096 5.29079 8.29096H7.30747L4.85737 11.4238C4.78782 11.5128 4.65507 11.518 4.5787 11.4349L1.69149 8.29096H3.71545C3.79494 8.29096 3.79494 8.29096 3.79494 8.21709C3.79494 7.65318 3.78916 7.08908 3.7973 6.52517C3.80201 6.19641 3.69532 5.90324 3.49264 5.6356C3.16999 5.21016 2.77278 4.85549 2.26909 4.60157C1.98834 4.46378 1.72056 4.30545 1.46846 4.12817C0.925568 3.73754 0.562638 3.2386 0.351394 2.64375C0.202708 2.22604 0.11851 1.79731 0.0685911 1.3622C0.0213642 0.929176 -0.0018034 0.49429 -0.000823975 0.0591755C-0.000823975 0.0264938 0.0256701 0 0.0583515 0L1.37488 0C1.40692 0 1.4329 0.0259743 1.4329 0.0580152C1.45239 0.436081 1.46268 0.814727 1.49417 1.19202C1.52394 1.5556 1.60022 1.91484 1.72148 2.26259C1.87703 2.70738 2.16604 3.05102 2.61917 3.2854C2.9144 3.43818 3.20384 3.60197 3.48471 3.77544C3.87914 4.0191 4.20286 4.3289 4.46788 4.68821C4.47495 4.69769 4.48159 4.70755 4.4893 4.71625C4.4908 4.71857 4.49466 4.71993 4.50087 4.72341Z" fill="#F2F3F3"/></svg>
+      <span>) button to merge the visible layers after each successful operation.</span>`),
     steps: 0,
+    name: 'workflow'
   },
   proretouch: {
     html: html.proretouch,
@@ -1112,7 +1113,8 @@ const scenario = {
       fork.burnMethod.html,
       fork.contrastMatte.html,
       fork.final.html
-    ]
+    ],
+    name: 'proretouch'
   },
   fastretouch: {
     html: html.proretouch,
@@ -1124,7 +1126,8 @@ const scenario = {
       fork.contrastMatte.html,
       modes.vignette.html,
       fork.final.html
-    ]
+    ],
+    name: 'fastretouch'
   },
   autoretouch: {
     html: html.proretouch,
@@ -1136,7 +1139,8 @@ const scenario = {
       fork.contrastMatte.html,
       modes.vignette.html,
       fork.final.html
-    ]
+    ],
+    name: 'autoretouch'
   },
   makeup: {
     html: modes.antiglare.html,
@@ -1148,8 +1152,10 @@ const scenario = {
       modes.blusher.html,
       modes.teeth.html,
       modes.lips.html,
-      modes.lips2.html
-    ]
+      modes.lips2.html,
+      fork.final.html
+    ],
+    name: 'makeup'
   },
   retouchmakeup: {
     html: html.proretouch,
@@ -1185,7 +1191,8 @@ const scenario = {
       modes.lips2.html,
       fork.contrastMatte.html,
       fork.final.html
-    ]
+    ],
+    name: 'retouchmakeup'
   }
 }
 let WorkNavigator = Object.assign({}, scenario.workflow);
@@ -1198,67 +1205,72 @@ const handlerWorkFlow = (idx = 0) => {
   if(idx) workMode.value = "workflow";
   workMode.dispatchEvent(new Event('change'));
 }
+const createWindow = (step = 1, crntPage = WorkNavigator.html) => {
+  clearWindow();
+
+  interactiveWindow.insertAdjacentHTML('afterbegin', crntPage);
+  interactiveSteps.insertAdjacentHTML('afterbegin', `Step ${!!WorkNavigator.steps ? `${step} of ${WorkNavigator.steps.length}` : ``}`);
+
+  WorkNavigator.currentStep = step;
+}
 // It is hung as a handler for a click on a button on the slide
 const changeMode = (obj) => {
   // Copy array
   let steps = WorkNavigator.steps.slice();
-  // Crnt
-  let currentStep = +interactiveSteps.getAttribute('data-step');
-  const currentPage = steps[currentStep - 1];
+  
+  const currentPage = steps[WorkNavigator.currentStep - 1];
 
   // If the user has returned to an already completed selection stage
   if(currentPage.isChoosingWindow === false) {
-    steps = steps.filter((step, idx) => currentStep > idx || step.added === undefined || step.isChoosingSlide());
+    steps = steps.filter((step, idx) => WorkNavigator.currentStep > idx || step.added === undefined || step.isChoosingSlide());
     steps.forEach((step, idx) => {
-      if(step.isChoosingSlide() && currentStep - 1 < idx) step.isChoosingWindow = true;
+      if(step.isChoosingSlide() && WorkNavigator.currentStep - 1 < idx) step.isChoosingWindow = true;
     })
-    currentStep = steps.indexOf(currentPage) + 1;
+    WorkNavigator.currentStep = steps.indexOf(currentPage) + 1;
   } else {
     currentPage.isChoosingWindow = false;
   }
 
   let newSteps = [obj.html];
   if(obj.steps) newSteps.push(...obj.steps);
-  newSteps.forEach(i => i.added = true)
+  newSteps.forEach(i => i.added = true);
 
-  steps.splice(currentStep, 0, ...newSteps);
+  steps.splice(WorkNavigator.currentStep, 0, ...newSteps);
 
   // insert slides into Navigator
   WorkNavigator = Object.assign(WorkNavigator, {steps});
-  paginator(currentStep + 1);
+  paginator(WorkNavigator.currentStep + 1);
 }
 // Slider mechanism
 const paginator = (direction) => {
+  if(!WorkNavigator.steps) return
   const prevPage = WorkNavigator.steps[direction - 2];
   if(prevPage && prevPage.isChoosingWindow) return;
   if(direction > WorkNavigator.steps.length) direction = WorkNavigator.steps.length
-  clearWindow();
-  interactiveSteps.setAttribute('data-step', direction);
-  interactiveWindow.insertAdjacentHTML('afterbegin', WorkNavigator.steps[direction - 1]);
-  interactiveSteps.insertAdjacentHTML('afterbegin', `Step ${direction} of ${WorkNavigator.steps.length}`);
+  createWindow(direction, WorkNavigator.steps[direction - 1])
 }
-const goToWorkflowPage = () => {
+const goWorkflow = () => {
+  // If the user was last on the final page, then return it to workflow
+  if(WorkNavigator.steps && WorkNavigator.steps[WorkNavigator.currentStep - 1].title === "Done!") {
+    workMode.value = "workflow";
+    WorkNavigator = Object.assign({}, scenario.workflow);
+  } else {
+    workMode.value = WorkNavigator.name;
+  }
   // Select/Drop menu
   workMode.addEventListener('change', function() {
-    clearWindow();  
-    WorkNavigator = Object.assign({}, scenario[this.value])
+    WorkNavigator = Object.assign({}, scenario[this.value]);
+    createWindow();
+    // Indicate that the selection windows did not receive a response from the user.
     if(WorkNavigator.steps) {
-      WorkNavigator.steps.forEach((slide) => {
-        if(slide instanceof Slider && slide.getChoosing()) slide.setChoosingWindow()
-      });
-      interactiveSteps.insertAdjacentHTML('afterbegin', `Step 1 of ${WorkNavigator.steps.length}`);
-      interactiveSteps.setAttribute('data-step', '1');
-    } else {
-      interactiveSteps.insertAdjacentHTML('afterbegin', `Step`);
-      interactiveSteps.setAttribute('data-step', '0');
+      WorkNavigator.steps.forEach((slide) => { if(slide.getChoosing()) slide.setChoosingWindow(); });
     }
-    interactiveWindow.insertAdjacentHTML('afterbegin', WorkNavigator.html);
   })
   // Actions under the slider
   interactiveActions.addEventListener('click', function(e) {
     let realTarget = e.target.closest('.main-interactive__button');
-    let step = +interactiveSteps.getAttribute('data-step');
-    if(realTarget && step !== 0) {
+    let step = WorkNavigator.currentStep;
+    if(realTarget) {
       switch(realTarget.classList.value.split(" ")[1]) {
         case 'next':
           if(step !== WorkNavigator.steps.length) paginator(step + 1);
@@ -1274,40 +1286,42 @@ const goToWorkflowPage = () => {
   })
   // Actions on the slider
   document
-  .querySelectorAll('.main-filters__button')
-  .forEach((i, idx) => i.addEventListener('click', () => handlerWorkFlow(idx)));
-  // Initial slide
-  interactiveWindow.insertAdjacentHTML('afterbegin', WorkNavigator.html);
+    .querySelectorAll('.main-filters__button')
+    .forEach((i, idx) => i.addEventListener('click', () => handlerWorkFlow(idx)));
+  // Initial slider
+  createWindow(WorkNavigator.currentStep, WorkNavigator.steps[WorkNavigator.currentStep - 1]);
 }
-// Navigator
-mainMenu.addEventListener('click', (e) => {
-  let target = e.target.closest('button');
-  if(!target || target.dataset.page == '#') return
-  mainWindow.removeChild(mainWindow.children[0]);
-  mainWindow.insertAdjacentHTML('afterbegin', pages[target.dataset.page])
-  if(target.dataset.page === 'controls') {
-    mainWindow.querySelectorAll('.main-ranges__input')
+const goControls = () => {
+  mainWindow.querySelectorAll('.main-ranges__input')
     .forEach(range => {
       range.addEventListener('input', function({target}) {
-        this.nextElementSibling.value = Number(target.value)
+        this.nextElementSibling.value = Number(target.value);
       })
-    })
+    });
     mainWindow.querySelectorAll('.main-ranges__number')
     .forEach(number => {
       number.addEventListener('change', function({target}) {
         let value = Number(target.value)
 
         if(value < +target.min) {
-          value = +target.min
+          value = +target.min;
         } else if (value > +target.max) {
-          value = +target.max
+          value = +target.max;
         }
 
-        target.value = value
-        this.previousElementSibling.value = value
+        target.value = value;
+        this.previousElementSibling.value = value;
       })
-    })
-  } else if(target.dataset.page === 'workflow') {
-    goToWorkflowPage();
+    });
+}
+// Navigator
+mainMenu.addEventListener('click', (e) => {
+  let target = e.target.closest('button');
+  if(!target) return;
+  mainWindow.removeChild(mainWindow.children[0]);
+  mainWindow.insertAdjacentHTML('afterbegin', pages[target.dataset.page]);
+  switch(target.dataset.page) {
+    case 'controls': goControls(); break;
+    case 'workflow': goWorkflow(); break;
   }
 })
